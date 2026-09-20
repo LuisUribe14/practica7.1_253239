@@ -1,0 +1,117 @@
+### 1. Inscribir a Karla en el horario 1
+POST http://localhost:3000/inscripciones
+Content-Type: application/json
+
+{
+  "horarioId": 1,
+  "miembroId": 1
+}
+
+### 2. Inscribir a Omar en el horario 1
+POST http://localhost:3000/inscripciones
+Content-Type: application/json
+
+{
+  "horarioId": 1,
+  "miembroId": 2
+}
+
+### 3. Inscribir a Sofia en el horario 1
+POST http://localhost:3000/inscripciones
+Content-Type: application/json
+
+{
+  "horarioId": 1,
+  "miembroId": 3
+}
+
+### 4. Inscribir a Karla otra vez en el horario 1
+POST http://localhost:3000/inscripciones
+Content-Type: application/json
+
+{
+  "horarioId": 1,
+  "miembroId": 1
+}
+
+### 5. Cuerpo invalido
+POST http://localhost:3000/inscripciones
+Content-Type: application/json
+
+{
+  "horarioId": "no-es-numero"
+}
+
+### 6. Cancelar la inscripcion de Omar
+PATCH http://localhost:3000/inscripciones/1/cancelar
+
+
+
+
+### Miembros - 1. Listar todos
+GET http://localhost:3000/miembros
+
+### Miembros - 2. Buscar por id
+GET http://localhost:3000/miembros/1
+
+### Miembros - 3. Crear uno nuevo
+POST http://localhost:3000/miembros
+Content-Type: application/json
+
+{
+  "nombre": "Diego Rios",
+  "correo": "diego@itson.mx",
+  "membresia": "basica"
+}
+
+### Miembros - 4. Actualizar
+PATCH http://localhost:3000/miembros/1
+Content-Type: application/json
+
+{
+  "membresia": "plus"
+}
+
+### Miembros - 5. Eliminar
+DELETE http://localhost:3000/miembros/2
+
+### Horarios - 1. Listar todos
+GET http://localhost:3000/horarios
+
+### Horarios - 2. Buscar por id
+GET http://localhost:3000/horarios/1
+
+### Horarios - 3. Crear uno nuevo
+POST http://localhost:3000/horarios
+Content-Type: application/json
+
+{
+  "claseId": 2,
+  "dia": "Jueves",
+  "horaInicio": "18:00",
+  "cupoMaximo": 15,
+  "entrenador": "Lucia Fernandez"
+}
+
+### Horarios - 4. Actualizar
+PATCH http://localhost:3000/horarios/1
+Content-Type: application/json
+
+{
+  "cupoMaximo": 3
+}
+
+### Horarios - 5. Eliminar
+DELETE http://localhost:3000/horarios/2
+
+### Horarios - 6. Probar con claseId invalido (para la pregunta de reflexion)
+POST http://localhost:3000/horarios
+Content-Type: application/json
+
+{
+  "claseId": "no-es-numero",
+  "dia": "Viernes",
+  "horaInicio": "09:00",
+  "cupoMaximo": 10,
+  "entrenador": "Prueba"
+}
